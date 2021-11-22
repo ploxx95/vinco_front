@@ -11,6 +11,7 @@ module.exports = {
     colors: {
       "primary-500": "#05998A",
       "primary-100": "#20AD96",
+      "primary-50": "#B9E1DB",
       "secondary-500": "#3F3A64",
       "secondary-100": "#8C89A2",
       "tertiary-500": "#D7C9BC",
