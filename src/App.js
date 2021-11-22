@@ -1,10 +1,11 @@
 import { CardWrapper } from "./components/CardWrapper";
+import PlusIcon from "./icons/PlusIcon";
 
 function App() {
   return (
     <>
-      <CardWrapper>
-        <h1>Add User</h1>
+      <CardWrapper className="border-2 border-primary-100 ">
+        <PlusIcon />
       </CardWrapper>{" "}
     </>
   );
