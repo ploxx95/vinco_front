@@ -1,14 +1,17 @@
+import { CardUser } from "./components/CardUser";
 import { CardWrapper } from "./components/CardWrapper";
-import PlusIcon from "./icons/PlusIcon";
 
 function App() {
   return (
-    <div className="min-h-screen bg-tertiary-100 grid place-content-center">
-      <CardWrapper className="border-4 border-primary-50 ">
-        <div className="p-7 grid place-content-center border-4 rounded-full border-primary-50">
-          <PlusIcon />
+    <div className=" bg-tertiary-100 ">
+      <div className=" container mx-auto grid place-content-center min-h-screen">
+        <div className="grid-container">
+          <CardWrapper />
+          <CardUser />
+          <CardUser />
+          <CardUser />
         </div>
-      </CardWrapper>{" "}
+      </div>
     </div>
   );
 }
