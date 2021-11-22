@@ -1,9 +1,13 @@
-export const CardWrapper = ({ children, className }) => {
+import PlusIcon from "../icons/PlusIcon";
+
+export const CardWrapper = () => {
   return (
     <div
-      className={`w-76 h-95 rounded-xl p-8 grid place-content-center ${className}`}
+      className={`w-76 h-95 rounded-xl  grid place-content-center border-4 border-primary-50`}
     >
-      {children}
+      <div className="p-7 grid place-content-center border-4 rounded-full border-primary-50">
+        <PlusIcon />
+      </div>
     </div>
   );
 };
