@@ -14,7 +14,7 @@ const useFetch = (endpoint) => {
       try {
         const res = await fetch(`${BASE_URL}${endpoint}`);
         const data = await res.json();
-        setData(data);
+        setData(data?.data);
       } catch (error) {
         setError(error);
       } finally {
@@ -25,7 +25,7 @@ const useFetch = (endpoint) => {
     fetchData();
   }, [endpoint]);
 
-  return { data, loading, error };
+  return { data, loading, error, setData };
 };
 
 export default useFetch;

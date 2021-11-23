@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { postUser } from "../services/ApiMethod";
 import { CtaButton } from "./CtaButton";
 import { InputLabel } from "./InputLabel";
 
-export const ModalWindow = () => {
+export const ModalWindow = ({ modal, dataUsers }) => {
   const [value, setValue] = useState({
     name: "",
     role: "",
@@ -20,9 +21,12 @@ export const ModalWindow = () => {
       };
     });
   }
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     console.log(value);
+    dataUsers((prev) => [...prev, value]);
+    modal(false);
+    const res = await postUser(value);
   }
   return (
     <div className="absolute top-0 bg-gray-900 h-full w-full bg-opacity-30 grid place-content-center">
@@ -73,7 +77,12 @@ export const ModalWindow = () => {
               label="Cursos"
             />
           </div>
-          <CtaButton>Actualizar</CtaButton>
+          <div className="display flex justify-center gap-4  mt-5 ">
+            <CtaButton>Actualizar</CtaButton>
+            <CtaButton type="button" onClick={() => modal(false)}>
+              Cerrar
+            </CtaButton>
+          </div>
         </form>
         ;
       </div>
