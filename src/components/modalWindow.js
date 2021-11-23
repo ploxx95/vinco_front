@@ -78,7 +78,7 @@ export const ModalWindow = ({ modal, dataUsers }) => {
             />
           </div>
           <div className="display flex justify-center gap-4  mt-5 ">
-            <CtaButton>Actualizar</CtaButton>
+            <CtaButton>Crear</CtaButton>
             <CtaButton type="button" onClick={() => modal(false)}>
               Cerrar
             </CtaButton>
