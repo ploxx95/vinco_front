@@ -72,5 +72,5 @@ const values = {
 };
 
 Formulario.propTypes = {
-  values: PropTypes.shape(values),
+  values: PropTypes.shape(values).isRequired,
 };

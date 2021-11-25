@@ -1,9 +1,4 @@
-import { useFormik } from "formik";
-import React, { useState } from "react";
-import { postUser } from "../services/ApiMethod";
-import { CtaButton } from "./CtaButton";
-import { InputForm } from "./InputForm";
-import * as Yup from "yup";
+import React from "react";
 import { Formulario } from "./Formulario";
 
 export const ModalWindow = ({ modal, dataUsers }) => {
@@ -33,8 +28,8 @@ export const ModalWindow = ({ modal, dataUsers }) => {
   //         />
 
   return (
-    <div className="absolute top-0 bg-gray-900 h-full w-full bg-opa city-30 grid place-content-center">
-      <div className="px-16 py-12 min-w-min  bg-white rounded-xl border-primary-100 border-2">
+    <div className="absolute top-0 bg-gray-900 h-full w-full bg-opacity-75 city-30 grid place-content-center">
+      <div className=" container  px-16 py-12 min-w-min  bg-white rounded-xl border-primary-100 border-2">
         <Formulario />
       </div>
     </div>
