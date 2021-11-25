@@ -1,7 +1,7 @@
 import React from "react";
 import { Formulario } from "./Formulario";
 
-export const ModalWindow = ({ modal, dataUsers }) => {
+export const ModalWindow = ({ dataUsers }) => {
   // function handleChange(e) {
   //   const input_value = e.target;
   //   setValue((prev) => {

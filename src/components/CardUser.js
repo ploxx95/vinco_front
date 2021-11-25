@@ -49,7 +49,7 @@ export const CardUser = ({
         </div>
       </div>
       <div className="flex justify-center ">
-        <CtaButton>Actualizar</CtaButton>
+        <CtaButton className="bg-primary-100">Actualizar</CtaButton>
       </div>
     </div>
   );
