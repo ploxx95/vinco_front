@@ -1,13 +1,10 @@
 import React from "react";
 
-export const CtaButton = (props) => {
-  console.log(!!props.type);
+export const CtaButton = ({ type, ...props }) => {
   return (
     <button
-      className={`px-8 py-2 text-white  rounded-md ${
-        props?.type ? "bg-red-500" : "bg-primary-100"
-      }`}
-      {...props}
+      className={`px-8 py-2 text-white  rounded-md uppercase ${props.className}`}
+      type={type}
     >
       {props.children}
     </button>
