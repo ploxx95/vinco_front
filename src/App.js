@@ -9,7 +9,7 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   console.log("DATAA : ", data);
   return (
-    <div className=" bg-tertiary-100 relative ">
+    <div className=" bg-tertiary-100  ">
       <div className=" container mx-auto grid place-content-center min-h-screen">
         <div className="grid-container">
           <CardWrapper modal={setShowModal} />
