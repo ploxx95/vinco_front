@@ -1,12 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { CtaButton } from "./CtaButton";
 
 export const CardUser = ({
   name = "Pepe Zapata T.",
-  role = "operario",
-  score = 78,
-  courses = 9,
-  age = 27,
+  role = "operarioo",
+  score = 1,
+  course = 10,
+  age = 1,
+  id,
 }) => {
   return (
     <div className="w-76 h-95 rounded-xl p-8 shadow-md bg-white ">
@@ -25,7 +27,7 @@ export const CardUser = ({
       <div className="flex justify-around my-10">
         <div className="flex flex-col items-center">
           <p className="text-xl leading-7 font-semibold text-secondary-30000">
-            {courses}
+            {course}
           </p>
           <p className="text-xs leading-none font-normal text-gray-neutral">
             Cursos
@@ -49,7 +51,11 @@ export const CardUser = ({
         </div>
       </div>
       <div className="flex justify-center ">
-        <CtaButton>Actualizar</CtaButton>
+        <Link to={`/edit/${id}`}>
+          <CtaButton color="primary" type="button">
+            Actualizar
+          </CtaButton>
+        </Link>
       </div>
     </div>
   );
