@@ -9,6 +9,7 @@ export const index = () => {
       <Routes>
         <Route path="/" element={<Main />}>
           <Route path="/create" element={<ModalWindow />} />
+          <Route path="/edit/:id" element={<ModalWindow />} />
         </Route>
       </Routes>
     </BrowserRouter>

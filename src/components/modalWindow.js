@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import { Formulario } from "./Formulario";
 
 export const ModalWindow = ({ dataUsers }) => {
+  const navigate = useNavigate();
   // function handleChange(e) {
   //   const input_value = e.target;
   //   setValue((prev) => {
@@ -26,9 +28,15 @@ export const ModalWindow = ({ dataUsers }) => {
   //           name="role"
   //           label="Cargo"
   //         />
-
+  function handleToBack(e) {
+    if (e.target.dataset.bg) return navigate(-1);
+  }
   return (
-    <div className="absolute top-0 bg-gray-900 h-full w-full bg-opacity-75 city-30 grid place-content-center">
+    <div
+      data-bg="background"
+      onClick={handleToBack}
+      className="absolute top-0 bg-gray-900 h-full w-full bg-opacity-75 city-30 grid place-content-center"
+    >
       <div className=" container  px-16 py-12 min-w-min  bg-white rounded-xl border-primary-100 border-2">
         <Formulario />
       </div>

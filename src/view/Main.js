@@ -24,6 +24,7 @@ export const Main = () => {
                   score={user.score}
                   course={user.course}
                   age={user.age}
+                  id={user.id}
                 />
               );
             })}

@@ -4,8 +4,12 @@ import * as Yup from "yup";
 import { CtaButton } from "./CtaButton";
 import { InputForm } from "./InputForm";
 import PropTypes from "prop-types";
+import { Link, useMatch } from "react-router-dom";
+import { postUser } from "../services/ApiMethod";
 
-export const Formulario = ({ values }) => {
+export const Formulario = () => {
+  const match = useMatch("/edit/:id");
+  console.log(match);
   const values_default = {
     name: "",
     role: "",
@@ -15,7 +19,7 @@ export const Formulario = ({ values }) => {
   };
   return (
     <Formik
-      initialValues={values || values_default}
+      initialValues={values_default}
       validationSchema={Yup.object({
         name: Yup.string()
           .max(15, "Must be 15 characters or less")
@@ -23,16 +27,23 @@ export const Formulario = ({ values }) => {
         role: Yup.string()
           .max(15, "Must be 15 characters or less")
           .required("Required"),
-        course: Yup.string()
-          .max(15, "Must be 15 characters or less")
-          .required("Required"),
+        course: Yup.number().required("Required"),
+        score: Yup.number().required("Required"),
+        age: Yup.string().required("Required"),
       })}
-      onSubmi={(values) => {
-        alert(JSON.stringify(values, null, 2));
+      onSubmit={(values) => {
+        if (!match) {
+          console.log(values);
+          postUser(values);
+          alert(JSON.stringify(values, null, 2));
+        } else {
+        }
       }}
     >
       <Form className="space-y-4">
-        <h2 className="text-center font-sans text-3xl font-semibold">Crear</h2>
+        <h2 className="text-center font-sans text-3xl font-semibold">
+          {match ? "Editar" : "Crear"}
+        </h2>
         <InputForm
           label="Nombre  "
           type="text"
@@ -51,26 +62,28 @@ export const Formulario = ({ values }) => {
           <InputForm label="Score  " type="number" name="score" />
         </div>
         <div className="display flex gap-x-10 justify-center">
-          <CtaButton type="submit" className="bg-primary-100">
-            Crear
+          <CtaButton type="submit" color="primary">
+            {match ? "Editar" : "Crear"}
           </CtaButton>
-          <CtaButton type="button" className="bg-red-500">
-            Cerrar
-          </CtaButton>
+          <Link to="/">
+            <CtaButton type="button" color="danger">
+              Cerrar
+            </CtaButton>
+          </Link>
         </div>
       </Form>
     </Formik>
   );
 };
 
-const values = {
-  name: PropTypes.string,
-  role: PropTypes.string,
-  score: PropTypes.number,
-  age: PropTypes.string,
-  course: PropTypes.number,
-};
+// const values = {
+//   name: PropTypes.string,
+//   role: PropTypes.string,
+//   score: PropTypes.number,
+//   age: PropTypes.string,
+//   course: PropTypes.number,
+// };
 
-Formulario.propTypes = {
-  values: PropTypes.shape(values).isRequired,
-};
+// Formulario.propTypes = {
+//   values: PropTypes.shape(values),
+// };
