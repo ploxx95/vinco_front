@@ -54,6 +54,19 @@ export default function CrudProvider({ children }) {
   function passDataToEdit(data) {
     setValueToPass(() => data);
   }
+  async function handleDelete(id) {
+    try {
+      const res = await axios.delete(`${BASE_URL}/user/${id}`);
+      console.log(res);
+      setDataUsers((prev) =>
+        prev.filter((user) => {
+          if (user.id !== id) return user;
+        })
+      );
+    } catch (error) {
+      console.log("ESTO ES EL ERROR : ", error);
+    }
+  }
 
   return (
     <CrudContext.Provider
@@ -62,6 +75,7 @@ export default function CrudProvider({ children }) {
         getData,
         handleEdit,
         handleCreate,
+        handleDelete,
         passDataToEdit,
         dataUsers,
         loading,

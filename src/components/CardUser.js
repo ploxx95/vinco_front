@@ -59,7 +59,7 @@ export const CardUser = (props) => {
         </Link>
       </div>
       <div className="absolute top-6 right-4">
-        <MoreButton />
+        <MoreButton id={id} />
       </div>
     </div>
   );

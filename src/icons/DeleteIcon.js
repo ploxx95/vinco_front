@@ -11,12 +11,12 @@ export function DeleteInactiveIcon(props) {
         y="6"
         width="10"
         height="10"
-        fill="#EDE9FE"
-        stroke="#A78BFA"
+        fill="#B9E1DB"
+        stroke="#20AD96"
         strokeWidth="2"
       />
-      <path d="M3 6H17" stroke="#A78BFA" strokeWidth="2" />
-      <path d="M8 6V4H12V6" stroke="#A78BFA" strokeWidth="2" />
+      <path d="M3 6H17" stroke="#20AD96" strokeWidth="2" />
+      <path d="M8 6V4H12V6" stroke="#20AD96" strokeWidth="2" />
     </svg>
   );
 }
@@ -34,12 +34,12 @@ export function DeleteActiveIcon(props) {
         y="6"
         width="10"
         height="10"
-        fill="#8B5CF6"
-        stroke="#C4B5FD"
+        fill="#20AD96"
+        stroke="#B9E1DB"
         strokeWidth="2"
       />
-      <path d="M3 6H17" stroke="#C4B5FD" strokeWidth="2" />
-      <path d="M8 6V4H12V6" stroke="#C4B5FD" strokeWidth="2" />
+      <path d="M3 6H17" stroke="#B9E1DB" strokeWidth="2" />
+      <path d="M8 6V4H12V6" stroke="#B9E1DB" strokeWidth="2" />
     </svg>
   );
 }
