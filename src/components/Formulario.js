@@ -1,28 +1,29 @@
 import { Formik, Form } from "formik";
-import React from "react";
+import React, { useContext } from "react";
 import * as Yup from "yup";
 import { CtaButton } from "./CtaButton";
 import { InputForm } from "./InputForm";
-import PropTypes from "prop-types";
 import { Link, useMatch } from "react-router-dom";
-import { postUser } from "../services/ApiMethod";
+import { edittUser } from "../services/ApiMethod";
+import { CrudContext } from "../context/CrudContext";
 
+const values_default = {
+  name: "",
+  role: "",
+  score: 0,
+  age: "",
+  course: 0,
+};
 export const Formulario = () => {
+  const { handleCreate, valueToPass, handleEdit } = useContext(CrudContext);
+
   const match = useMatch("/edit/:id");
-  console.log(match);
-  const values_default = {
-    name: "",
-    role: "",
-    score: 0,
-    age: "",
-    course: 0,
-  };
   return (
     <Formik
-      initialValues={values_default}
+      initialValues={match ? valueToPass : values_default}
       validationSchema={Yup.object({
         name: Yup.string()
-          .max(15, "Must be 15 characters or less")
+          .max(80, "Must be 80 characters or less")
           .required("Required"),
         role: Yup.string()
           .max(15, "Must be 15 characters or less")
@@ -33,10 +34,14 @@ export const Formulario = () => {
       })}
       onSubmit={(values) => {
         if (!match) {
-          console.log(values);
-          postUser(values);
+          console.log("VALUES", values);
+          handleCreate(values);
           alert(JSON.stringify(values, null, 2));
         } else {
+          console.log("VALUES", values);
+          handleEdit(values.id, values);
+          // edittUser(2, values);
+          alert(JSON.stringify(values, null, 2));
         }
       }}
     >
