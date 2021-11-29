@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { CrudContext } from "../context/CrudContext";
 import { CtaButton } from "./CtaButton";
+import { MoreButton } from "./MoreButton";
 
-export const CardUser = ({
-  name = "Pepe Zapata T.",
-  role = "operario",
-  score = 78,
-  courses = 9,
-  age = 27,
-}) => {
+export const CardUser = (props) => {
+  const { name, role, score, course, age, id } = props;
+  const { passDataToEdit } = useContext(CrudContext);
   return (
-    <div className="w-76 h-95 rounded-xl p-8 shadow-md bg-white ">
+    <div className="relative w-76 h-95 rounded-xl p-8 shadow-md bg-white ">
       <img
         className="rounded-full m-auto border-8 border-tertiary-100 mb-3"
         width="102"
@@ -25,7 +24,7 @@ export const CardUser = ({
       <div className="flex justify-around my-10">
         <div className="flex flex-col items-center">
           <p className="text-xl leading-7 font-semibold text-secondary-30000">
-            {courses}
+            {course}
           </p>
           <p className="text-xs leading-none font-normal text-gray-neutral">
             Cursos
@@ -49,7 +48,18 @@ export const CardUser = ({
         </div>
       </div>
       <div className="flex justify-center ">
-        <CtaButton>Actualizar</CtaButton>
+        <Link to={`/edit/${id}`}>
+          <CtaButton
+            color="primary"
+            type="button"
+            onClick={() => passDataToEdit(props)}
+          >
+            Actualizar
+          </CtaButton>
+        </Link>
+      </div>
+      <div className="absolute top-6 right-4">
+        <MoreButton id={id} />
       </div>
     </div>
   );
